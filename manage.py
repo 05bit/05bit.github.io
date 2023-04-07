@@ -2,13 +2,17 @@
 import os
 import urllib3
 from mimetypes import guess_type
+from umarkdown import markdown
 from pydantic import BaseSettings
 from signa import Factory as SignaFactory
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Environment, FileSystemLoader
 
 
 class Settings(BaseSettings):
-    htdocs_root: str = 'htdocs' 
+    htdocs_root: str = 'htdocs'
+    content_root: str = 'content'
+    templates_root: str = 'templates'
+    pages: list = ['index.html']
     aws_access_key_id: str
     aws_secret_access_key: str
     s3_bucket: str
@@ -20,32 +24,49 @@ class Settings(BaseSettings):
 
 
 def main():
+    """Run site management command."""
     publish()
 
 
-def build():
+def build(settings: Settings):
     """Build site."""
+    pages = settings.pages
+    content = render_md_files(settings)
     jinja = Environment(
-        loader=FileSystemLoader('templates'),
-        autoescape=select_autoescape()
+        loader=FileSystemLoader(settings.templates_root), autoescape=False,
     )
-    template = jinja.get_template('index.html')
-    html = template.render(
-        message='Yo!'
-    )
-    print(html)
+    for name in pages:
+        template = jinja.get_template(name)
+        html = template.render(content=content)
+        path = os.path.join(settings.htdocs_root, name)
+        with open(path, 'w') as file:
+            file.write(html)
 
 
 def publish():
     """Build and publish to site S3."""
-    build()
-    upload_to_s3()
-
-
-def upload_to_s3():
-    """Upload files to S3."""
     settings = Settings()
+    build(settings)
+    upload_to_s3(settings)
 
+
+def render_md_files(settings: Settings):
+    """Render Markdown files to HTML files."""
+    content_dir = settings.content_root
+    rendered_dict = {}
+    for filename in os.listdir(content_dir):
+        if filename.endswith('.md'):
+            file_path = os.path.join(content_dir, filename)
+            with open(file_path, 'r') as f:
+                md_content = f.read()
+                html_content = markdown(md_content)
+                key = os.path.splitext(filename)[0]
+                rendered_dict[key] = html_content
+    return rendered_dict
+
+
+def upload_to_s3(settings: Settings):
+    """Upload files to S3."""
     # Set up HTTP client
     http = urllib3.PoolManager()
 

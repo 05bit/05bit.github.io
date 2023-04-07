@@ -1,0 +1,23 @@
+Sure, here's an example Python function that scans the 'content' directory for .md files, renders each file as HTML using umarkdown, and puts the rendered results into a dictionary where each key is the file name without the extension:
+
+```
+import os
+import umarkdown
+
+def render_md_files():
+    content_dir = 'content'
+    rendered_dict = {}
+
+    for filename in os.listdir(content_dir):
+        if filename.endswith('.md'):
+            file_path = os.path.join(content_dir, filename)
+            with open(file_path, 'r') as f:
+                md_content = f.read()
+                html_content = umarkdown.markdown(md_content)
+                key = os.path.splitext(filename)[0]
+                rendered_dict[key] = html_content
+
+    return rendered_dict
+```
+
+To use this function, simply call `render_md_files()` and it will return a dictionary where each key is the file name without the extension, and the value is the rendered HTML content of the corresponding .md file in the 'content' directory. You can modify the `content_dir` variable to point to a different directory if needed.

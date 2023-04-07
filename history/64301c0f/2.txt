@@ -1,0 +1,1 @@
+Create a Python function that scans 'content' directory with .md files and render each file as HTML via umarkdown, and put rendered results to dict, each key should be file name without an extention.
