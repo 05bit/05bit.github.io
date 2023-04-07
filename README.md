@@ -17,3 +17,15 @@ pip install --upgrade pip pip-tools
 pip-compile
 pip install -r requirements.txt
 ```
+
+Collab with ChatGPT:
+
+```bash
+python3 -m gptcollab.chat
+```
+
+or
+
+```bash
+python3 -m gptcollab.images
+```

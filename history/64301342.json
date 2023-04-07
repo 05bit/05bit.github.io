@@ -1,0 +1,13 @@
+{
+  "chat_id": "chatcmpl-72fwx7Dw6elqsza97YFX5asAO9rWy",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Create a basic Jinja2 template with the header and content block. In the content block there's a list of items. In the header there's horizontal menu: Logo + clickable Team, Projects, Contact Us. Let's use Montserrat font."
+    },
+    {
+      "role": "assistant",
+      "content": "<!DOCTYPE html>\n<html>\n<head>\n\t<title>My Website</title>\n\t<link href=\"https://fonts.googleapis.com/css?family=Montserrat\" rel=\"stylesheet\">\n\t<style>\n\t\tbody {\n\t\t\tfont-family: 'Montserrat', sans-serif;\n\t\t}\n\t\t.header {\n\t\t\tdisplay: flex;\n\t\t\tjustify-content: space-between;\n\t\t\talign-items: center;\n\t\t\tpadding: 20px;\n\t\t\tbackground-color: #333;\n\t\t\tcolor: #fff;\n\t\t}\n\t\t.logo {\n\t\t\tfont-size: 24px;\n\t\t\tfont-weight: bold;\n\t\t}\n\t\t.menu {\n\t\t\tdisplay: flex;\n\t\t\talign-items: center;\n\t\t}\n\t\t.menu a {\n\t\t\tcolor: #fff;\n\t\t\ttext-decoration: none;\n\t\t\tmargin-left: 20px;\n\t\t}\n\t\t.content {\n\t\t\tpadding: 20px;\n\t\t}\n\t\t.items {\n\t\t\tlist-style: none;\n\t\t\tpadding: 0;\n\t\t\tmargin: 0;\n\t\t}\n\t\t.items li {\n\t\t\tmargin-bottom: 10px;\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div class=\"header\">\n\t\t<div class=\"logo\">My Website</div>\n\t\t<div class=\"menu\">\n\t\t\t<a href=\"#\">Team</a>\n\t\t\t<a href=\"#\">Projects</a>\n\t\t\t<a href=\"#\">Contact Us</a>\n\t\t</div>\n\t</div>\n\t<div class=\"content\">\n\t\t<ul class=\"items\">\n\t\t\t<li>Item 1</li>\n\t\t\t<li>Item 2</li>\n\t\t\t<li>Item 3</li>\n\t\t\t<li>Item 4</li>\n\t\t\t<li>Item 5</li>\n\t\t</ul>\n\t</div>\n</body>\n</html>"
+    }
+  ]
+}

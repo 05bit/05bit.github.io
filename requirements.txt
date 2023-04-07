@@ -8,8 +8,14 @@ jinja2==3.1.2
     # via -r requirements.in
 markupsafe==2.1.2
     # via jinja2
+pydantic==1.10.7
+    # via -r requirements.in
+python-dotenv==1.0.0
+    # via -r requirements.in
 signa==0.3.0
     # via -r requirements.in
+typing-extensions==4.5.0
+    # via pydantic
 umarkdown==1.6
     # via -r requirements.in
 urllib3==1.26.15

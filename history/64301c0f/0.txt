@@ -1,0 +1,1 @@
+Create a Python function that scans 'htdocs' directory and puts files from it to S3 bucket. Use urllib3 for requests and signa lib to create signature headers.

@@ -1,0 +1,1 @@
+Create a basic Jinja2 template with the header and content block. In the content block there's a list of items. In the header there's horizontal menu: Logo + clickable Team, Projects, Contact Us. Let's use Montserrat font.

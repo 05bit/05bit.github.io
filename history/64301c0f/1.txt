@@ -1,0 +1,48 @@
+I'm sorry, as an AI language model, I don't have access to your local files and resources. However, I can provide you with a sample code that you can modify according to your needs. Please note that this code is just an example and may require modifications to work correctly in your environment.
+
+```
+import os
+import boto3
+import urllib3
+from botocore.signers import RequestSigner
+
+def upload_to_s3():
+    # Set up S3 client
+    s3 = boto3.client('s3')
+    bucket_name = 'your-bucket-name'
+
+    # Set up HTTP client
+    http = urllib3.PoolManager()
+
+    # Set up request signer
+    region = 'your-region'
+    service = 's3'
+    credentials = boto3.Session().get_credentials()
+    signer = RequestSigner(service, region, 's3', 'aws4', credentials, datetime.now())
+
+    # Set up directory to scan
+    directory = 'htdocs'
+
+    # Loop through files in directory
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            # Set up file path and S3 key
+            file_path = os.path.join(root, file)
+            s3_key = file_path.replace(directory, '').lstrip('/')
+
+            # Set up HTTP request
+            url = f'https://{bucket_name}.s3.{region}.amazonaws.com/{s3_key}'
+            headers = {'x-amz-content-sha256': 'UNSIGNED-PAYLOAD'}
+            request = http.Request('PUT', url, headers=headers)
+
+            # Sign request
+            signed_request = signer.sign(request, bucket_name)
+
+            # Upload file to S3
+            with open(file_path, 'rb') as f:
+                response = http.urlopen(signed_request, body=f.read())
+
+            print(f'Uploaded {file_path} to S3 bucket {bucket_name} with key {s3_key}')
+```
+
+To use this function, simply call `upload_to_s3()` and it will scan the `htdocs` directory and upload all files to the specified S3 bucket. You will need to replace `your-bucket-name` and `your-region` with your actual bucket name and region. You may also need to modify the `credentials` variable to use the appropriate AWS access keys.
