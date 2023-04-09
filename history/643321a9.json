@@ -1,0 +1,13 @@
+{
+  "chat_id": "chatcmpl-73W6MiUttKtEaLe8PtzAElBLjwpow",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Create a GitHub workflow file for deployment with the following steps: checkout repo, install Python dependenciees from requirements.txt, run python manage.py to build site and deploy. Also provide env variables from secrets: S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY."
+    },
+    {
+      "role": "assistant",
+      "content": "name: Deploy to AWS S3\n\non:\n  push:\n    branches:\n      - main\n\njobs:\n  deploy:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout Repo\n        uses: actions/checkout@v2\n\n      - name: Install Python Dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install -r requirements.txt\n\n      - name: Build Site\n        run: python manage.py build\n\n      - name: Deploy to S3\n        uses: jakejarvis/s3-sync-action@master\n        with:\n          args: --acl public-read --follow-symlinks --delete\n        env:\n          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET }}\n          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}\n          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+    }
+  ]
+}

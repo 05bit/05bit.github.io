@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import os
 import urllib3
 from mimetypes import guess_type
@@ -16,8 +17,8 @@ class Settings(BaseSettings):
     aws_access_key_id: str
     aws_secret_access_key: str
     s3_bucket: str
-    s3_region: str
-    s3_endpoint: str
+    s3_region: str = 'us-west-001'
+    s3_endpoint: str = 's3.{region}.backblazeb2.com'
 
     class Config:
         env_file = '.env'
@@ -25,7 +26,20 @@ class Settings(BaseSettings):
 
 def main():
     """Run site management command."""
-    publish()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-b', '--build', action='store_true', help='Build')
+    parser.add_argument('-p', '--publish', action='store_true', help='Publish')
+    args = parser.parse_args()
+    settings = Settings()
+    if args.build:
+        build(settings)
+    elif args.publish:
+        publish(settings)
+    else:
+        print(
+            "Please specify either --build or --publish option. "
+            "Use -h or --help for more information."
+        )
 
 
 def build(settings: Settings):
@@ -40,13 +54,13 @@ def build(settings: Settings):
         html = template.render(content=content)
         path = os.path.join(settings.htdocs_root, name)
         with open(path, 'w') as file:
+            print(f"Writing {path}...")
             file.write(html)
+            print("OK")
 
 
-def publish():
-    """Build and publish to site S3."""
-    settings = Settings()
-    build(settings)
+def publish(settings: Settings):
+    """Publish to site S3."""
     upload_to_s3(settings)
 
 
@@ -108,12 +122,12 @@ def upload_to_s3(settings: Settings):
             
             # Upload file to S3
             with open(file_path, 'rb') as file:
+                print(f"Uploading {file_path} to {signature['url']}...")
                 http.request(
                     'PUT', signature['url'], headers=signature['headers'],
                     body=file.read(),
                 )
-
-            print(f"Uploaded {file_path} to {signature['url']}")
+            print("OK")
 
 
 if __name__ == '__main__':

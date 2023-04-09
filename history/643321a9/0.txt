@@ -1,0 +1,1 @@
+Create a GitHub workflow file for deployment with the following steps: checkout repo, install Python dependenciees from requirements.txt, run python manage.py to build site and deploy. Also provide env variables from secrets: S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY.
