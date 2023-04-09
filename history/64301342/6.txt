@@ -1,0 +1,1 @@
+Let's add .about block inside .content - It should be full width block with cover image and text. Text should be placed in the centered block with width of 50rem on wide screen, it should be responsible to take all width on smaller devices.

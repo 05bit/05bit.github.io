@@ -2,7 +2,7 @@ import argparse
 import time
 from typing import List
 from pathlib import Path
-from requests import request as http_request
+from ..http import http_request
 from .settings import Settings
 from .prompt import Prompt
 
@@ -20,9 +20,9 @@ def save_result(
     for i, url in enumerate(urls):
         image_path = chat_dir / f'generated_{i}.png'
         print(url, '->', image_path)
-        resp = http_request('GET', url)
+        data = http_request('GET', url)
         with open(image_path, "wb") as file:
-            file.write(resp.content)
+            file.write(data)
 
 
 def main():

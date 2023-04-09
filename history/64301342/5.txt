@@ -1,0 +1,10 @@
+<style>
+		.logo {
+			font-size: 24px;
+			font-weight: bold;
+			background-image: url("assets/logo-inverted.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+			padding-left: 50px;
+		}
+</style>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Website</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Montserrat', sans-serif;
+			margin: 0;
+			background-color: #343839;
+			color: #F4F5F5;
+		}
+		.header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+			background-color: #333;
+			color: #fff;
+		}
+		.logo {
+			font-size: 24px;
+			font-weight: bold;
+		}
+		.menu {
+			display: flex;
+			align-items: center;
+		}
+		.menu a {
+			color: #FEF9A3;
+			text-decoration: none;
+			margin-left: 20px;
+		}
+		.content {
+			padding: 20px;
+		}
+		.items {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.items li {
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="logo">My Website</div>
+		<div class="menu">
+			<a href="#">Team</a>
+			<a href="#">Projects</a>
+			<a href="#">Contact Us</a>
+		</div>
+	</div>
+	<div class="content">
+		<ul class="items">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+			<li>Item 5</li>
+		</ul>
+	</div>
+</body>
+</html>

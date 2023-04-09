@@ -1,0 +1,1 @@
+Let's use background color 343839, main text color F4F5F5, links color #FEF9A3. Also lets set body margins to zero. And also let's add responsive and encoding UTF-8 meta headers. Show me changes only.
