@@ -14,9 +14,9 @@ class Settings(BaseSettings):
     content_root: str = 'content'
     templates_root: str = 'templates'
     pages: list = ['index.html']
-    aws_access_key_id: str
-    aws_secret_access_key: str
-    s3_bucket: str
+    aws_access_key_id: str = ''
+    aws_secret_access_key: str = ''
+    s3_bucket: str = ''
     s3_region: str = 'us-west-001'
     s3_endpoint: str = 's3.{region}.backblazeb2.com'
 
@@ -81,6 +81,11 @@ def render_md_files(settings: Settings):
 
 def upload_to_s3(settings: Settings):
     """Upload files to S3."""
+    assert settings.s3_region
+    assert settings.s3_bucket
+    assert settings.aws_access_key_id
+    assert settings.aws_secret_access_key
+
     # Set up HTTP client
     http = urllib3.PoolManager()
 
