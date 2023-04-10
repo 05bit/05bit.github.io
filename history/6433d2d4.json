@@ -1,0 +1,13 @@
+{
+  "chat_id": "chatcmpl-73hriLeomb4XPb192nCt7fKuZ21TB",
+  "messages": [
+    {
+      "role": "user",
+      "content": "For tablericons I need an HTML example and style for GitHub link."
+    },
+    {
+      "role": "assistant",
+      "content": "Here's an example HTML code for a GitHub link using Tablericons:\n\n```html\n<a href=\"https://github.com/\" target=\"_blank\">\n  <svg class=\"icon\">\n    <use xlink:href=\"path/to/tabler-icons/sprite.svg#github\" />\n  </svg>\n  <span>GitHub</span>\n</a>\n```\n\nAnd here's a sample CSS style for the link:\n\n```css\na {\n  display: inline-flex;\n  align-items: center;\n  color: #333;\n  text-decoration: none;\n  font-weight: bold;\n  font-size: 16px;\n}\n\n.icon {\n  width: 24px;\n  height: 24px;\n  margin-right: 8px;\n  fill: #333;\n}\n```\n\nThis will display a GitHub icon with the text \"GitHub\" next to it, and apply some basic styling to the link and icon. You can adjust the styles to fit your needs."
+    }
+  ]
+}

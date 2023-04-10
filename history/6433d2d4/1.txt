@@ -1,0 +1,32 @@
+Here's an example HTML code for a GitHub link using Tablericons:
+
+```html
+<a href="https://github.com/" target="_blank">
+  <svg class="icon">
+    <use xlink:href="path/to/tabler-icons/sprite.svg#github" />
+  </svg>
+  <span>GitHub</span>
+</a>
+```
+
+And here's a sample CSS style for the link:
+
+```css
+a {
+  display: inline-flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  fill: #333;
+}
+```
+
+This will display a GitHub icon with the text "GitHub" next to it, and apply some basic styling to the link and icon. You can adjust the styles to fit your needs.

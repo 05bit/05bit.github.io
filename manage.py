@@ -73,7 +73,7 @@ def render_md_files(settings: Settings):
             file_path = os.path.join(content_dir, filename)
             with open(file_path, 'r') as f:
                 md_content = f.read()
-                html_content = markdown(md_content)
+                html_content = markdown(md_content, unsafe=True)
                 key = os.path.splitext(filename)[0]
                 rendered_dict[key] = html_content
     return rendered_dict
