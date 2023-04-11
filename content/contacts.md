@@ -5,7 +5,7 @@ Tell us about your project.
 #### Location
 
 Our team is distributed across the globe. We are based in Armenia,
-Kyrgyz Republic, United States and Europe.
+Kyrgyz Republic, United States, Latin America and Europe.
 
 #### Email
 
