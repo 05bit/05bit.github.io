@@ -1,0 +1,1 @@
+I'd need a list displayed as colored labels in one line, like tags. Create a styles code for me pls.

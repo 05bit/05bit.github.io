@@ -4,10 +4,10 @@
 	<title>.5bit studio</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap');
 		body {
-			font-family: 'Montserrat', sans-serif;
+			font-family: 'Red Hat Display', sans-serif;
 			margin: 0;
 			background-color: #343839;
 			color: #F4F5F5;
@@ -15,6 +15,18 @@
 		a {
 			color: #FEF9A3;
 			text-decoration: none;
+		}
+		h2 {
+			padding-bottom: 0.25rem;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+		}
+		h3 {
+			margin-top: 2rem;
+		}
+		h3 small {
+			font-size: 1rem;
+			background-color: #FFFFFF;
+			color: #343839;
 		}
 		h4 {
 			margin-bottom: 0;
@@ -43,11 +55,11 @@
 			margin-left: 1.5rem;
 		}
 		.content {
-			padding: 1.5rem;
+			padding: 1.5rem 1.5rem 0 1.5rem;
 		}
 		.content-text {
 			max-width: 42rem;
-			padding: 3rem 1rem;
+			padding: 1rem 1rem 3rem 1rem;
 			margin: 0 auto;
 		}
 		.about {
@@ -58,35 +70,60 @@
 		}
 		.about-text {
 			max-width: 42rem;
-			padding: 3rem 1rem;
+			padding: 1.5rem 1rem;
 			margin: 0 auto;
 			line-height: 1.5;
 			background-color: #FFFFFF;
 			color: #343839;
 		}
+		.button--inv {
+			background-color: #00ADF7;
+			color: #FFFFFF;
+			display: inline-block;
+			padding: 0.5rem 1rem;
+			border-radius: 0.25rem;
+			box-shadow: 0 0.8em 1.25em rgba(52, 56, 57, 0.15);
+		}
 		.projects {
 			padding: 0;
 			margin: 0;
 		}
-		a.social-media {
+		.projects ul {
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.projects li {
 			display: inline-block;
+			padding: .25rem .5rem;
+			margin: .125rem;
+			border-radius: .25rem;
+			font-size: 0.75rem;
+			text-transform: uppercase;
+			color: #FFFFFF;
+			background-color: #8A2BE2;
+		}
+		.contacts {
+			margin-top: 2rem;
+		}
+		a.social-media {
+			display: inline-flex;
+			align-items: center;
 			margin-top: 1rem;
 			margin-right: 1rem;
 		}
 		a.social-media svg {
-			display: inline-block;
-			/* margin-top: -4px; */
-		}
-
-		a.social-media {
-			display: inline-flex;
-			align-items: center;
-		}
-
-		a.social-media svg {
 			width: 1.5rem;
 			height: 1.5rem;
 			margin-right: 0.25rem;
+		}
+		.footer {
+			color: rgba(255, 255, 255, 0.25);
+			padding: 1.5rem;
+			text-align: center;
 		}
 	</style>
 </head>
@@ -95,8 +132,8 @@
 		<div class="logo"></div>
 		<div class="menu">
 			<!-- <a href="#">Team</a> -->
-			<a href="#">Projects</a>
-			<a href="mailto:team@05bit.com">Contact Us</a>
+			<a href="#projects">Projects</a>
+			<a href="#contacts">Contact Us</a>
 		</div>
 	</div>
 	<div class="about">
@@ -104,13 +141,21 @@
 	</div>
 	<div class="content">
 		<div class="content-text">
-			<div class="projects">
-				...
+			<div class="projects"><a name="projects"></a>
+				<h2>Projects</h2>
+				{% for k in content %}
+					{% if k.startswith("project_") %}
+					{{ content[k] }}
+					{% endif %}
+				{% endfor %}
 			</div>	
-			<div class="contacts">
+			<div class="contacts"><a name="contacts"></a>
 				{{ content.contacts }}
 			</div>
 		</div>
 	</div>
+	<footer class="footer">
+		{{ content.footer }}
+	</footer>
 </body>
 </html>

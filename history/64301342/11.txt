@@ -1,0 +1,9 @@
+A color that plays well with both `#FEF9A3` and `#00ADF7` would be a shade of purple. Here's a CSS code for a purple tag:
+
+```
+.tag-purple {
+  background-color: #8A2BE2;
+}
+```
+
+You can use this color for tags that need to play well with both `#FEF9A3` and `#00ADF7`.

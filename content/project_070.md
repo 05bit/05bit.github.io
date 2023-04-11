@@ -1,0 +1,3 @@
+### Docta — <small>Lightweght static site generator</small>
+
+...

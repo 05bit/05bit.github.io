@@ -1,0 +1,44 @@
+Sure, here's a basic CSS code for displaying a list of colored labels in one line:
+
+```
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.tag-red {
+  background-color: #ff0000;
+}
+
+.tag-green {
+  background-color: #00ff00;
+}
+
+.tag-blue {
+  background-color: #0000ff;
+}
+```
+
+You can use this code to create a list of tags with different colors by adding the `tag` class and a color-specific class like `tag-red`, `tag-green`, or `tag-blue` to each label. For example:
+
+```
+<ul class="tag-list">
+  <li class="tag tag-red">Red</li>
+  <li class="tag tag-green">Green</li>
+  <li class="tag tag-blue">Blue</li>
+</ul>
+```

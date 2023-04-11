@@ -1,0 +1,3 @@
+### White Page — <small>Daily planner</small>
+
+...

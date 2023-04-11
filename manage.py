@@ -68,7 +68,7 @@ def render_md_files(settings: Settings):
     """Render Markdown files to HTML files."""
     content_dir = settings.content_root
     rendered_dict = {}
-    for filename in os.listdir(content_dir):
+    for filename in sorted(os.listdir(content_dir)):
         if filename.endswith('.md'):
             file_path = os.path.join(content_dir, filename)
             with open(file_path, 'r') as f:

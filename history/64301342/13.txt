@@ -1,0 +1,129 @@
+Sure, here's the updated code with the footer block and styles:
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Website</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Montserrat', sans-serif;
+			margin: 0;
+			background-color: #343839;
+			color: #F4F5F5;
+		}
+		.header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+			background-color: #333;
+			color: #fff;
+		}
+		.logo {
+			font-size: 24px;
+			font-weight: bold;
+			background-image: url("assets/logo-inverted.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+			padding-left: 50px;
+		}
+		.menu {
+			display: flex;
+			align-items: center;
+		}
+		.menu a {
+			color: #FEF9A3;
+			text-decoration: none;
+			margin-left: 20px;
+		}
+		.content {
+			padding: 20px;
+		}
+		.items {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.items li {
+			margin-bottom: 10px;
+		}
+		.about {
+			background-image: url("assets/cover-image.jpg");
+			background-size: cover;
+			background-position: center;
+			padding: 50px 0;
+			text-align: center;
+		}
+		.about-text {
+			max-width: 50rem;
+			margin: 0 auto;
+		}
+		@media (max-width: 768px) {
+			.about-text {
+				max-width: none;
+			}
+		}
+		.tag-list {
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.tag {
+			display: inline-block;
+			padding: 5px 10px;
+			margin: 5px;
+			border-radius: 5px;
+			font-size: 14px;
+			font-weight: bold;
+			text-transform: uppercase;
+			color: #fff;
+		}
+		.tag-purple {
+			background-color: #8A2BE2;
+		}
+		.footer {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="logo"></div>
+		<div class="menu">
+			<a href="#">Team</a>
+			<a href="#">Projects</a>
+			<a href="#">Contact Us</a>
+		</div>
+	</div>
+	<div class="content">
+		<ul class="items">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+			<li>Item 5</li>
+		</ul>
+		<div class="about">
+			<div class="about-text">
+				<h2>About Us</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu ultrices bibendum, nunc elit ultrices odio, vel euismod sapien sapien vel velit. Sed euismod, urna eu ultrices bibendum, nunc elit ultrices odio, vel euismod sapien sapien vel velit.</p>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<p>&copy; 2021 My Website. All rights reserved. Contact us at <a href="mailto:contact@mywebsite.com">contact@mywebsite.com</a>.</p>
+	</footer>
+</body>
+</html>
+```
+
+You can customize the footer text and contact email as needed.
